@@ -128,10 +128,10 @@ def video_camera_live(queue):
 
 def create_connection():
     client = mqttClient.Client('image_recognition')
-    client.connect('0.0.0.0', PORT)
+    client.connect('192.168.0.109', PORT)
     return client
 
 
 if __name__ == "__main__":
     queue = create_connection()
-    video_controller_sender(queue)
+    image_controller_sender(queue)
