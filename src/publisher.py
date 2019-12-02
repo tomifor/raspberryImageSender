@@ -1,6 +1,8 @@
 PORT = 1883
+TOPIC = "images"
 
 
 def publish(img, id, queue):
     payload = '{"id": "' + id + '", "image": "' + img + '"}'
-    queue.publish("image", payload)
+    print(payload)
+    queue.publish(TOPIC, payload)

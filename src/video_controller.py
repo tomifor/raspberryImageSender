@@ -54,7 +54,7 @@ def video_controller_sender(queue) -> str:
 
 
 def image_controller_sender(queue) -> str:
-    img = cv2.imread("assets/plateToyota.jpg")
+    img = cv2.imread("assets/plateSorento.jpg")
 
     if img is None:
         print("\n### Error: image not found ### \n\n")
@@ -127,11 +127,12 @@ def video_camera_live(queue):
 
 
 def create_connection():
-    client = mqttClient.Client('image_recognition')
-    client.connect('192.168.0.109', PORT)
+    client = mqttClient.Client()
+    client.connect(host='172.22.40.73', port=PORT)
     return client
 
 
 if __name__ == "__main__":
     queue = create_connection()
+    print(queue.is_connected())
     image_controller_sender(queue)

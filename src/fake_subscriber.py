@@ -12,7 +12,7 @@ def on_message(client, userdata, msg):
 
 def start_subscriber():
     client = mqtt.Client(os.environ['QUEUE_CLIENT'])
-    client.connect( os.environ['QUEUE_IP'], int(os.environ['QUEUE_PORT']))
+    client.connect("172.22.39.26", int(os.environ['QUEUE_PORT']))
     client.subscribe("image")
     client.on_message = on_message
     print("Waiting for messages .....")
